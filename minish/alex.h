@@ -1,5 +1,11 @@
 
-typedef enum e_type
+#ifndef ALEX_H
+# define ALEX_H
+#include <stdio.h>
+#include <readline/readline.h>
+#include <readline/history.h>
+
+typedef enum e_type				// definition du type de chaq token
 {
 	WORD,
 	PIPE,
@@ -9,7 +15,7 @@ typedef enum e_type
 	REDIR_APPEND
 }					t_type;
 
-typedef struct s_token
+typedef struct s_token			//liste chainee des tokens
 {
 	char			*value;		// caracetere(s) du token
 	t_type			type;		// enum type du token
@@ -17,7 +23,7 @@ typedef struct s_token
 	struct s_token	*prev;
 }					t_token;
 
-typedef struct s_state
+typedef struct s_state			//memoire de l'avancee pendant la tokenisation
 {
 	char			*str; 		//string transmis dans le prompt
 	int				i;			//place dans la string
@@ -25,3 +31,5 @@ typedef struct s_state
 	struct s_token	*current;	//token en cours
 	struct s_token	*head;		//tete de la liste
 }					t_state;
+
+#endif
