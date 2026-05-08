@@ -1,8 +1,4 @@
-
-
-#include <stdio.h>
-#include <readline/readline.h>
-#include <readline/history.h>
+#include "alex.h"
 
 int	main()
 {
@@ -12,6 +8,7 @@ int	main()
 	{
 		line = readline("minishell$ ");	// -lreadline pour compil
 		add_history(line);				// historique envoie au prompt fleche du haut et du bas pour check
+		to_token(line);
 		if (!line)
 			break ;						//renvoie NULL ctrl D to leave
 	}
